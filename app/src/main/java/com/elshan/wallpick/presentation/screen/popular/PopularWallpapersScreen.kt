@@ -24,7 +24,13 @@ fun PopularWallpapersScreen(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         topBar = {
-            CustomTopAppBar(scrollBehavior, navController, "Popular")
+            CustomTopAppBar(
+                scrollBehavior,
+                navController,
+                "Popular",
+                onFilterSelected = { filterType ->
+                    onEvent(MainUiEvents.FilterWallpapers(filterType))
+                })
         }
     ) { paddingValues ->
         val paddingValues = paddingValues

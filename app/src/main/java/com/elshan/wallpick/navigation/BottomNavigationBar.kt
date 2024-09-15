@@ -1,8 +1,5 @@
 package com.elshan.wallpick.navigation
 
-import androidx.compose.animation.AnimatedContentTransitionScope
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -89,15 +86,8 @@ fun BottomNavigationBar(
                                 tint = if (isSelectedItem) MaterialTheme.colorScheme.primary
                                 else MaterialTheme.colorScheme.outline,
 
-                            )
+                                )
                         },
-//                        label = {
-//                            Text(
-//                                text = item.label,
-//                                color = if (isSelectedItem) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondaryContainer,
-//                                style = MaterialTheme.typography.bodySmall,
-//                            )
-//                        }
                     )
                 }
             }
@@ -123,28 +113,7 @@ fun BottomBarScreens(
         startDestination = BottomScreen.Home
     ) {
 
-        composable<BottomScreen.Home>(
-            enterTransition = {
-                slideIntoContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    initialOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Left
-                )
-            },
-            exitTransition = {
-                slideOutOfContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    targetOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Right
-                )
-            }
-        ) {
+        composable<BottomScreen.Home> {
             HomeScreen(
                 navController = navController,
                 mainUiState = mainUiState,
@@ -153,28 +122,7 @@ fun BottomBarScreens(
             )
         }
 
-        composable<BottomScreen.Category>(
-            enterTransition = {
-                slideIntoContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    initialOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Left
-                )
-            },
-            exitTransition = {
-                slideOutOfContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    targetOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Right
-                )
-            }
-        ) {
+        composable<BottomScreen.Category> {
             CategoryScreen(
                 navController = navController,
                 mainUiState = mainUiState,
@@ -184,28 +132,7 @@ fun BottomBarScreens(
             )
         }
 
-        composable<BottomScreen.Favorite>(
-            enterTransition = {
-                slideIntoContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    initialOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Left
-                )
-            },
-            exitTransition = {
-                slideOutOfContainer(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                    targetOffset = { it },
-                    towards = AnimatedContentTransitionScope.SlideDirection.Right
-                )
-            }
-        ) {
+        composable<BottomScreen.Favorite> {
             FavoritesScreen(
                 mainUiState = mainUiState,
                 onEvent = onEvent,

@@ -36,7 +36,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun NewNavGraph(
-//    startDestination: Screen,
     context: MainActivity,
     mainUiState: MainUiState,
     onEvent: (MainUiEvents) -> Unit,
@@ -47,16 +46,13 @@ fun NewNavGraph(
     val googleAuthUiClient = mainViewModel.googleAuthUiClient
 
     val navController = rememberNavController()
-    val firebaseUser = googleAuthUiClient.getSignedInUser()?.firebaseUser
 
     NavHost(
         navController = navController,
         startDestination = if (googleAuthUiClient.getSignedInUser() != null) Screen.Main else Screen.Login
     ) {
 
-        composable<Screen.Login>(
-
-        ) {
+        composable<Screen.Login> {
             LaunchedEffect(key1 = Unit) {
                 if (googleAuthUiClient.getSignedInUser() != null) {
                     navController.navigate(Screen.Main)
@@ -130,13 +126,15 @@ fun NewNavGraph(
         }
 
         composable<Screen.WallpaperDetails>(
-            enterTransition = { fadeIn(
-                animationSpec = spring(
-                    dampingRatio = 0.8f,
-                    stiffness = 400f
-                ),
-                initialAlpha = 5f
-            ) }
+            enterTransition = {
+                fadeIn(
+                    animationSpec = spring(
+                        dampingRatio = 0.8f,
+                        stiffness = 400f
+                    ),
+                    initialAlpha = 5f
+                )
+            }
         ) {
             val details = it.toRoute<Screen.WallpaperDetails>()
             DetailsScreen(
@@ -210,8 +208,5 @@ fun NewNavGraph(
                 onEvent = onEvent,
             )
         }
-
     }
-
-
 }

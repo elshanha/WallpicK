@@ -30,6 +30,7 @@ import com.elshan.wallpick.presentation.screen.onboarding.OnboardingScreen
 import com.elshan.wallpick.presentation.viewmodel.MainViewModel
 import com.elshan.wallpick.ui.theme.WallpicKTheme
 import com.elshan.wallpick.utils.custom.CustomSnackbarHost
+import com.elshan.wallpick.utils.custom.FilterType
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState

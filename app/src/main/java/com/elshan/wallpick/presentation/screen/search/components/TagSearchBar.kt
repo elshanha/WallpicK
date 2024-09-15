@@ -73,7 +73,7 @@ fun TagSearchBar(
                     Box(
                         modifier = Modifier
                             .background(
-                                MaterialTheme.colorScheme.onPrimary,
+                                MaterialTheme.colorScheme.primary,
                                 shape = MaterialTheme.shapes.extraLarge
                             )
                             .clickable {
@@ -81,7 +81,7 @@ fun TagSearchBar(
                             }
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                     ) {
-                        Text(text = tag, color = Color.White)
+                        Text(text = tag, color = MaterialTheme.colorScheme.onPrimary)
                     }
                 }
             }

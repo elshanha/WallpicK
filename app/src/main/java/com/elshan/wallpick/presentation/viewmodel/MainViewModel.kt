@@ -71,12 +71,13 @@ class MainViewModel @Inject constructor(
 
 
     private fun loadWallpapers(fetchFromRemote: Boolean = false) {
-        if (_mainUiState.value.allWallpapers.isEmpty() && _mainUiState.value.filteredWallpapers.isEmpty()) {
+        if (uiState.value.allWallpapers.isEmpty() || uiState.value.filteredWallpapers.isEmpty()) {
             fetchWallpapers(fetchFromRemote = true)
+            filterWallpapers(FilterType.LATEST, true)
         } else {
             fetchWallpapers(fetchFromRemote)
+            filterWallpapers(FilterType.LATEST, fetchFromRemote)
         }
-        filterWallpapers(FilterType.LATEST, fetchFromRemote)
         fetchCategories()
         getFavorites()
     }
@@ -403,6 +404,14 @@ class MainViewModel @Inject constructor(
 
 
                         is Resource.Error -> {
+                            Toast.makeText(
+                                context,
+                                "Error",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            result.message?.let { message ->
+                                showCustomSnackbar(message)
+                            }
                         }
 
                         is Resource.Loading -> {

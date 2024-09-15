@@ -24,7 +24,13 @@ fun MostDownloadedWallpapersScreen(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         topBar = {
-            CustomTopAppBar(scrollBehavior, navController, "Most Downloaded")
+            CustomTopAppBar(
+                scrollBehavior,
+                navController,
+                "Most Downloaded",
+                onFilterSelected = { filterType ->
+                    onEvent(MainUiEvents.FilterWallpapers(filterType))
+                })
 
         }
     ) { paddingValues ->

@@ -40,12 +40,6 @@ fun WallpaperList(
     gridListState: LazyGridState = rememberLazyGridState()
 ) {
 
-//    LaunchedEffect(mainUiState.allWallpapers.isEmpty()) {
-//        if (mainUiState.allWallpapers.isEmpty()) {
-//            onEvent(MainUiEvents.GetFromFirebase)
-//        }
-//    }
-
     if (wallpaperList.isNotEmpty()) {
         LazyVerticalGrid(
             state = gridListState,

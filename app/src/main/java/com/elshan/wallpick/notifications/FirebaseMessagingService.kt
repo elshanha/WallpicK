@@ -1,6 +1,6 @@
 package com.elshan.wallpick.notifications
 
-import android.content.Context
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -31,6 +31,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         if (userId != null) {
             val db = FirebaseFirestore.getInstance()
             db.collection("users").document(userId).update("fcmToken", token)
+            Log.d("postNotification", token)
         }
     }
 }

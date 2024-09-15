@@ -32,7 +32,7 @@ fun CustomTopAppBar(
     navController: NavController,
     title: String,
     selectedFilter: FilterType = FilterType.LATEST,
-    onFilterSelected: (FilterType) -> Unit = {}
+    onFilterSelected: (FilterType) -> Unit
 ) {
     var isDialogOpen by remember {
         mutableStateOf(false)
@@ -92,9 +92,3 @@ fun CustomTopAppBar(
         }
     )
 }
-
-
-
-
-
-

@@ -40,10 +40,6 @@ fun SignInScreen(
     onSignInClick: () -> Unit,
 ) {
 
-//    LaunchedEffect(key1 = mainUiState.allWallpapers.isEmpty()) {
-//        onEvent(MainUiEvents.GetFromFirebase)
-//    }
-
     val context = LocalContext.current
     LaunchedEffect(key1 = mainUiState.signInError) {
         mainUiState.signInError?.let { error ->

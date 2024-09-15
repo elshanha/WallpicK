@@ -37,8 +37,4 @@ class WallpicKApp : Application(), ImageLoaderFactory {
             .build()
     }
 
-    fun applicationContext(): Context {
-        return applicationContext
-    }
-
 }

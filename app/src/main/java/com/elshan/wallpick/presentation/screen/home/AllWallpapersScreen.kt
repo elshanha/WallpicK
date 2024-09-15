@@ -53,6 +53,9 @@ fun AllWallpapersScreen(
                 scrollBehavior = scrollBehavior,
                 navController = navController,
                 title = "All",
+                onFilterSelected = { filterType ->
+                    onEvent(MainUiEvents.FilterWallpapers(filterType))
+                }
             )
         }
     ) { paddingValues ->
